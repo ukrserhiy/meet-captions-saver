@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Ваші субтитри з Google Meet",
+  "short_name": "Ваші субтитри",
+  "version": "1.2",
+  "description": "Зберігає живі субтитри Google Meet у текстовий файл. Усе локально.",
+  "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "permissions": ["storage", "unlimitedStorage", "downloads", "scripting", "alarms"],
+  "host_permissions": ["https://meet.google.com/*"],
+  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_title": "Завантажити стенограми Meet",
+    "default_icon": { "16": "icons/icon16.png", "32": "icons/icon32.png" }
+  },
+  "content_scripts": [
+    { "matches": ["https://meet.google.com/*"], "js": ["lib.js", "content.js"] }
+  ]
+}
